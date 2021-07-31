@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>demo_memo_app</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <h1>Easy Memo App</h1>
+    <h2>アバターを選んでください</h2>
+    
+    <table>
+    <tr>
+        <td><img src="static/images/sample-a.png" alt="avatar-a" height="150"></td>
+        <td><img src="static/images/sample-b.png" alt="avatar-b" height="150"></td>
+        <td><img src="static/images/sample-c.png" alt="avatar-c" height="150"></td>
+    </tr>
+    <form method="GET" action={{url_for("login")}}>
+        <td><input type="radio" name="avatar" value="a">Avatar A</td>
+        <td><input type="radio" name="avatar" value="b">Avatar B</td>
+        <td><input type="radio" name="avatar" value="c">Avatar C</td>
+    </table>
+    <p>
+    名前を入力:<input type="text" name="username" size="20">
+    <button type="submit">Login</button>
+    </p>
+    </form>
+
+</body>
+</html>

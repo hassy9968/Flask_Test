@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>demo_memo_app</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <h1>Easy Memo App</h1>
+    <h2>ようこそ「{{session["name"]}}」さん。あなたのアバターは<img src="static/images/sample-{{session["avatar"]}}.png" alt="アカウント" height="60">です</h2>
+ 
+    <form method="post" action="/memo">
+        <input type="text" name=memo size="60"></textarea>
+        <input type="submit" name="memobutton" value="登録">
+    </form>
+    
+    <h3>
+        <table border="1" align="centrer">
+            <tr>
+                <th>Account</th> 
+                <th>Memo</th> 
+                <th>Time</th> 
+                <th>Edit</th> 
+            </tr>
+            {% for i in res %}
+            <tr>
+                <td width="80">
+                    <img src="static/images/sample-{{i.avat}}.png" alt="アカウント" height="60"><br>
+                    {{i.uname}}
+                </td> 
+                <td align="left" width="500">
+                    {{ i.msg }}
+                </td> 
+                <td>
+                    {{ i.day }}
+                </td>
+                <td>
+                    <a href="{{ url_for('delete', msg=i.msg)}}">削除</a>
+                <!--別解1-->
+                <!--<a href="/delete/{{i.msg}}">delete</a>-->
+                <!--別解2-->
+                <!--<a href="/?cont={{i.msg}}">削除</a>-->            
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </h3>
+    
+    <p>
+    <a href="{{url_for('logout')}}">Logout</a>
+    </p>
+
+</body>
+</html>

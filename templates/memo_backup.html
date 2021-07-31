@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>demo_memo_app</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <h1>TweetApp</h1>
+    
+    <form method="post" action="/">
+        <input type="text" name=memo size="60"></textarea>
+        <input type="submit" name="memobutton" value="Tweet">
+    </form>
+    
+    <h3>
+        <table border="1" align="centrer">
+            <tr>
+                <th>Account</th> 
+                <th>Tweet</th> 
+                <th>Time</th> 
+                <th>Edit</th> 
+            </tr>
+            {% for i in res %}
+            <tr>
+                <td width="80">
+                    <img src="static/images/sample_1.jpg" alt="アカウント" height="60">
+                    TOMO
+                </td> 
+                <td align="left" width="500">
+                    {{ i.msg }}
+                </td> 
+                <td>
+                    {{ i.day }}
+                </td>
+                <td>
+                    <a href="{{ url_for('delete', msg=i.msg)}}">削除</a>
+                <!--別解1-->
+                <!--<a href="/delete/{{i.msg}}">delete</a>-->
+                <!--別解2-->
+                <!--<a href="/?cont={{i.msg}}">削除</a>-->            
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </h3>
+
+</body>
+</html>
