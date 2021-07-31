@@ -20,7 +20,7 @@ This is an easy Message Board Application to learn "Flask" Framework.
 Backgroungcolor is light blue like Twitter  
 
 # Database  
-Using excel file as a database  
+Using csv file as a database  
 
 # Others 
 This is made for practicing Python and Flask Framework.  
